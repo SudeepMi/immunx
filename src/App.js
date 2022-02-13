@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Loading from "./Components/Loading";
 // packages
 import { AnimatePresence } from "framer-motion";
-import { PrivateRoute } from "./Utils/Utils";
+import { PrivateRoute, PublicRoute } from "./Utils/Utils";
 const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
@@ -27,7 +27,7 @@ function App() {
             )}
           />
           {/* login route */}
-          <Route
+          <PublicRoute
             exact
             path="/login"
             render={() => (
@@ -37,7 +37,7 @@ function App() {
             )}
           />
 
-        <Route
+        <PublicRoute
             exact
             path="/register"
             render={() => (
