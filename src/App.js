@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 // components
 import Loading from "./Components/Loading";
@@ -13,11 +13,15 @@ const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
 const Home = React.lazy(() => import("./Pages/Home"));
 
 function App() {
+   // eslint-disable-next-line 
+  const [redirect, setRedirect] = React.useState(false);
+
+ 
   return (
     <AnimatePresence>
       <BrowserRouter>
         <Switch>
-          <Route
+          <PublicRoute
             exact
             path="/"
             render={() => (
@@ -32,7 +36,7 @@ function App() {
             path="/login"
             component={() => (
               <Suspense fallback={<Loading />}>
-                <Login />
+                <Login setRedirect={setRedirect} />
               </Suspense>
             )}
           />
@@ -42,7 +46,7 @@ function App() {
             path="/register"
             component={() => (
               <Suspense fallback={<Loading />}>
-                <Register />
+                <Register setRedirect={setRedirect}/>
               </Suspense>
             )}
           />

@@ -15,7 +15,7 @@ import {
   import Visibility from "@mui/icons-material/Visibility";
   import VisibilityOff from "@mui/icons-material/VisibilityOff";
   import LoadingButton from "@mui/lab/LoadingButton";
-  import { Link, useHistory } from "react-router-dom";
+  import { Link } from "react-router-dom";
   import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -23,26 +23,21 @@ import axios from "axios";
 
   
   
-  function Login() {
-    const history = useHistory();
+  function Login({ setRedirect }) {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [open, setOpen] = React.useState(false);
     const [isError, setError] = React.useState("");
-    const [isSuccess, setSuccess] = React.useState(false);
     const [ isFetching, setFetching ] = React.useState(false);
     const [ errorMessage, seterrorMessage ] = React.useState(false);
 
   
     
     useEffect(() => {
-      if (isSuccess) {
-        history.push('/dashboard');
-      }
       if (isError ) {
         setOpen(true);
       }
-    }, [history, isSuccess, isError]);
+    }, [isError]);
   
     const [values, setValues] = React.useState({
       showPassword: false,
@@ -61,6 +56,7 @@ import axios from "axios";
   
     const handleLogin = () => {
       console.log("login");
+      setFetching(true);
       axios.post('https://immunx.herokuapp.com/api/auth/login', {
         email,
         password
@@ -69,8 +65,9 @@ import axios from "axios";
         if(res.status === 200) {
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('user', JSON.stringify(res.data.user));
-            setSuccess(res.data.success);
             setFetching(false);
+           setRedirect(true);
+
         }
         
     }).catch(err =>{
