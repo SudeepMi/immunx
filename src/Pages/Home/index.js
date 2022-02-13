@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import "./style.css";
 import { Button } from '@material-ui/core'
 import { useHistory } from "react-router-dom";
-import Logo from '../../Assets/Logo.png';
 
 
 export default function Home() {
