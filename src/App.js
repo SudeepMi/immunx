@@ -56,7 +56,7 @@ function App() {
             path="/dashboard"
             component={() => (
               <Suspense fallback={<Loading />}>
-                <Dashboard  />
+                <Dashboard setRedirect={setRedirect}  />
               </Suspense>
             )}
           />
