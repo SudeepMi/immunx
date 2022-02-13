@@ -99,14 +99,14 @@ import axios from "axios";
                 <div className="form-group">
                   <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-username">
-                      Username or Email
+                      Email
                     </InputLabel>
                     <OutlinedInput
                       id="outlined-adornment-username"
                       type={"text"}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      label="Username or Email"
+                      label="Email"
                     />
                   </FormControl>
                 </div>
