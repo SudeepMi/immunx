@@ -24,7 +24,7 @@ function App() {
           <PublicRoute
             exact
             path="/"
-            render={() => (
+            component={() => (
               <Suspense fallback={<Loading />}>
                 <Home />
               </Suspense>
