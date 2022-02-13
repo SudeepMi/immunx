@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Loading from "./Components/Loading";
 // packages
 import { AnimatePresence } from "framer-motion";
+import { PrivateRoute } from "./Utils/Utils";
 const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
@@ -46,9 +47,9 @@ function App() {
             )}
           />
 
-          <Route
+          <PrivateRoute
             // exact
-            path="/dashboard/:refer?/:refralID?"
+            path="/dashboard"
             render={() => (
               <Suspense fallback={<Loading />}>
                 <Dashboard  />

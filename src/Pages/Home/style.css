@@ -52,6 +52,9 @@
     text-transform: uppercase;
     color: #ffffff;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .landingPage__content__box > button{
     width: 70vw;

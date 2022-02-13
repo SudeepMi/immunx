@@ -1,3 +1,6 @@
+import { Route } from "react-router-dom";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+
 // funciton to check if the tron wallet is logged in or not
 const waitTron = () => {
     return new Promise((resolve, reject) => {
@@ -32,4 +35,16 @@ export const initContract = async () => {
     return contract;
 }
 
+const token = localStorage.getItem('token') || null;
 
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    return (
+        <Route {...rest} render={props => (
+            token ? (
+                <Component {...props} />
+            ) : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+        )} />
+    )
+}
+
+export {PrivateRoute};
