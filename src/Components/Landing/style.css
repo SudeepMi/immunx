@@ -1,0 +1,45 @@
+
+.landing > .left {
+  background: url("../../Assets/Landing.webp") no-repeat;
+  background-size: cover;
+}
+.landing{
+  width: 100%;
+}
+.landing > .left {
+  width: 100%;
+    height: 90vh;
+    display: grid;
+    place-content: center;
+}
+.landing .right{
+  color: white;
+  display: block;
+  width: 90%;
+  margin: auto;
+  background: #000000b8;
+  padding: 30px 10px;
+  text-align: center;
+}
+
+.right > .investNow {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 2;
+  color: #fff;
+  background: #ad1457;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 5px 10px;
+}
+
+.right > .investNow:hover {
+  color: #ad1457;
+  background-color: #fff;
+  border: 1px solid #ad1457;
+}
+.right h1{
+  word-spacing: 10px;
+  margin: 30px;
+}

@@ -1,0 +1,33 @@
+.referralBonus {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 20px 0px;
+  min-height: 60vh;
+}
+
+.referralBonus > .right {
+  background: url("../../Assets/Referral.webp") no-repeat;
+  background-size: cover;
+  width: 136vw;
+}
+
+
+.referralBonus > .left > .referNow {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 2;
+  color: #fff;
+  background: #f84f7ada;
+  font-weight: 600;
+  padding: 15px 25px;
+  border-radius: 12px;
+}
+
+.referalBonusFooter__content{
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
