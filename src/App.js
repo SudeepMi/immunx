@@ -30,7 +30,7 @@ function App() {
           <PublicRoute
             exact
             path="/login"
-            render={() => (
+            component={() => (
               <Suspense fallback={<Loading />}>
                 <Login />
               </Suspense>
@@ -40,7 +40,7 @@ function App() {
         <PublicRoute
             exact
             path="/register"
-            render={() => (
+            component={() => (
               <Suspense fallback={<Loading />}>
                 <Register />
               </Suspense>
@@ -50,7 +50,7 @@ function App() {
           <PrivateRoute
             // exact
             path="/dashboard"
-            render={() => (
+            component={() => (
               <Suspense fallback={<Loading />}>
                 <Dashboard  />
               </Suspense>

@@ -1,9 +1,9 @@
-import { Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
+
 
 const token = localStorage.getItem('token') || null;
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+export const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={props => (
             token ? (
@@ -13,12 +13,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     )
 }
 
-const PublicRoute = ({ component: Component, ...rest }) => {
+export const PublicRoute = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={props => (
-            token ? <Redirect to={{ pathname: '/dashboard', state: { from: props.location } }} /> : <Component {...props} />
+            !token ?
+                <Component {...props} />
+            : <Redirect to="/signin" />
         )} />
     )
 }
 
-export {PrivateRoute, PublicRoute};
+
