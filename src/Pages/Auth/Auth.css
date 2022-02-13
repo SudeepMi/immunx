@@ -83,6 +83,7 @@
     .auth-form{
         min-height: 100vh;
     }
+    
     .form-group{
         width: 100%;
         display: flex;
