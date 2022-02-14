@@ -3,7 +3,7 @@ import "./styles/style.css";
 import React from "react";
 import { Button } from "@mui/material";
 import Identicon from "react-identicons";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
@@ -116,7 +116,10 @@ export default function Dashboard({ setRedirect }) {
           {isWithdrawROIModelOpen && (
             <WithdrawROI setWithdrawROIModelOpen={setWithdrawROIModelOpen} />
           )}
-          <Button>
+          <Button onClick={() => {
+                navigator.clipboard.writeText("https://immunex.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
+                toast("Invititation Link Copied!")
+          }}>
             <i className="ri-share-line"></i>Invite
           </Button>
         </div>

@@ -1,10 +1,16 @@
 import { Button } from "@mui/material";
 import React from "react";
 import QRCode from "react-qr-code";
+import { toast } from "react-toastify";
 
 import "./styles/style.css";
 
 export default function Deposit({setIsDepositModelOpen}) {
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText("TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
+    toast("Address copied to clipboard!")
+  }
+  
   return (
     <div className="depositModel__container">
       <div className="relativeContainer">
@@ -16,14 +22,14 @@ export default function Deposit({setIsDepositModelOpen}) {
           </div>
 
           <div className="qrContainer">
-            <QRCode value="hey" />
+            <QRCode value="TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq" />
           </div>
 
           <div className="address">
             <div className="address__container">
               TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq
             </div>
-            <Button>Copy</Button>
+            <Button onClick={() => handleCopyAddress()}>Copy</Button>
           </div>
 
           <div>
