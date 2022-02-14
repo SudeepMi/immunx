@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import { PrivateRoute, PublicRoute } from "./Utils/Utils";
 const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
-const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
+const Dashboard = React.lazy(() => import("./Pages/Dashboard/index"));
 const Home = React.lazy(() => import("./Pages/Home"));
 
 function App() {

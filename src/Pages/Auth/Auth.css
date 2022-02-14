@@ -7,7 +7,7 @@
 }
 .auth-page a{
     text-decoration: none;
-    color: brown;
+    color: #01FF2C;
 }
 .auth-wrapper{
     width: 100%;
@@ -25,14 +25,28 @@
     align-items: center;
     margin: 50px 5px;
     background: white;
-    padding: 30px 10px;
+    padding: 10px 10px 40px 10px;
+    border-radius: 15px;
 }
 .auth-form > form > p{
-    color: brown;
+    color: #01FF2C;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 300;
 }
+
+.auth-form .form__title{
+    color: #000;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.auth-form .forgot__pwd{
+    font-size: 14px;
+    font-weight: 500;
+    color: red;
+}
+
 .auth-image img{
     width: 100%;
 }
