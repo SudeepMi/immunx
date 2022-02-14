@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import 'remixicon/fonts/remixicon.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./App.css";
 

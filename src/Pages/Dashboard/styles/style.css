@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap");
 .dashboard__container {
-  font-family: "Raleway", sans-serif; }
+  font-family: "Raleway", sans-serif;
+  position: relative; }
   .dashboard__container .userInfo {
     display: flex;
     justify-content: space-between;
@@ -71,8 +72,7 @@
     justify-content: space-around;
     align-items: flex-start;
     margin: 0 5vw;
-    padding: 20px 0;
-    border-bottom: 1px solid #dedede; }
+    padding: 25px 0 30px 0; }
     .dashboard__container .balances .dashboard__balance {
       display: flex;
       gap: 40px;
@@ -99,17 +99,39 @@
     .dashboard__container .balances .information ol {
       padding: 0 20px;
       line-height: 1.5; }
-    .dashboard__container .balances .ROI h2 {
-      margin: 5px 0; }
-    .dashboard__container .balances .ROI div {
-      margin-bottom: 10px; }
-    .dashboard__container .balances .ROI .MuiButton-root {
-      background: #000;
-      color: #fff;
-      padding: 3px 10px;
-      text-transform: initial;
-      min-width: 0;
-      margin-bottom: 10px;
-      gap: 8px; }
+    .dashboard__container .balances .ROI {
+      display: flex;
+      flex-direction: column;
+      gap: 5px; }
+      .dashboard__container .balances .ROI h3 {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 5px; }
+      .dashboard__container .balances .ROI div {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px; }
+      .dashboard__container .balances .ROI .MuiButton-root {
+        background: #000;
+        color: #fff;
+        padding: 3px 10px;
+        text-transform: initial;
+        min-width: 0;
+        margin-bottom: 10px;
+        gap: 8px; }
+  .dashboard__container .ad {
+    margin: 0 5vw;
+    background: url("https://images.unsplash.com/photo-1615992174118-9b8e9be025e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80") no-repeat center;
+    background-size: cover;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px; }
+  .dashboard__container .footer {
+    display: block;
+    margin: 30px 0;
+    text-align: center;
+    color: #747474; }
 
 /*# sourceMappingURL=style.css.map */
