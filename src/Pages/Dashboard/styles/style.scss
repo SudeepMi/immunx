@@ -49,6 +49,8 @@
       .logout {
         background: rgb(24, 24, 24);
         color: #fff;
+        gap: 5px;
+        align-items: center;
       }
     }
   }
@@ -63,6 +65,9 @@
     h1 {
       font-weight: 500;
       font-size: 30px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
 
     .buttons {
@@ -76,6 +81,7 @@
         text-transform: capitalize;
         font-size: 15px;
         border-radius: 7px;
+        gap: 5px;
       }
 
       .deposit {
@@ -94,7 +100,7 @@
     align-items: flex-start;
     margin: 0 5vw;
     padding: 20px 0;
-    border-bottom: 0.5px solid #dedede;
+    border-bottom: 1px solid #dedede;
 
     .dashboard__balance {
       display: flex;
@@ -147,9 +153,11 @@
       .MuiButton-root {
         background: #000;
         color: #fff;
-        padding: 0 15px;
+        padding: 3px 10px;
+        text-transform: initial;
         min-width: 0;
         margin-bottom: 10px;
+        gap: 8px;
       }
     }
   }

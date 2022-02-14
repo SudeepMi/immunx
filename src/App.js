@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
-import "./App.css";
 import { BrowserRouter, Switch } from "react-router-dom";
+import 'remixicon/fonts/remixicon.css'
+
+import "./App.css";
 
 // components
 import Loading from "./Components/Loading";

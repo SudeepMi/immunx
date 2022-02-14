@@ -34,7 +34,9 @@
         border-radius: 5px; }
       .dashboard__container .userInfo .walletInfo .logout {
         background: #181818;
-        color: #fff; }
+        color: #fff;
+        gap: 5px;
+        align-items: center; }
   .dashboard__container .dashboard__container__title {
     padding: 8px 5vw;
     display: flex;
@@ -43,7 +45,10 @@
     background: #fafafa; }
     .dashboard__container .dashboard__container__title h1 {
       font-weight: 500;
-      font-size: 30px; }
+      font-size: 30px;
+      display: flex;
+      gap: 10px;
+      align-items: center; }
     .dashboard__container .dashboard__container__title .buttons {
       display: flex;
       gap: 15px; }
@@ -53,7 +58,8 @@
         color: #000;
         text-transform: capitalize;
         font-size: 15px;
-        border-radius: 7px; }
+        border-radius: 7px;
+        gap: 5px; }
       .dashboard__container .dashboard__container__title .buttons .deposit {
         background: #2ecc71;
         padding: 8px 20px;
@@ -66,7 +72,7 @@
     align-items: flex-start;
     margin: 0 5vw;
     padding: 20px 0;
-    border-bottom: 0.5px solid #dedede; }
+    border-bottom: 1px solid #dedede; }
     .dashboard__container .balances .dashboard__balance {
       display: flex;
       gap: 40px;
@@ -100,8 +106,10 @@
     .dashboard__container .balances .ROI .MuiButton-root {
       background: #000;
       color: #fff;
-      padding: 0 15px;
+      padding: 3px 10px;
+      text-transform: initial;
       min-width: 0;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      gap: 8px; }
 
 /*# sourceMappingURL=style.css.map */
