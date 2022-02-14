@@ -145,7 +145,7 @@ function Login({ setRedirect }) {
                     {" "}
                     Login{" "}
                   </LoadingButton>
-                  <Link to="/register" className="forgot__pwd">Forgot your password?</Link>
+                  <Link to="/forgot-password">Forgot your password?</Link>
                 </div>
               </form>
               <Divider />
