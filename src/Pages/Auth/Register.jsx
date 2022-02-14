@@ -27,6 +27,7 @@ function Register({setRedirect}) {
   const [isError, setError] = React.useState("");
   const [isFetching, setFetching] = React.useState(false);
   const [errorMessage, seterrorMessage] = React.useState(false);
+  const [referral, setReferral] = React.useState("");
 
   useEffect(() => {
     if (isError) {
@@ -51,11 +52,21 @@ function Register({setRedirect}) {
 
   const handleRegister = async() => {
     setFetching(true);
+    if(email==="" || password==="" ){
+      setError(true);
+      seterrorMessage("Please fill all the fields");
+      setFetching(false);
+      return
+    }
+    const data = {
+      email,
+      password,
+    }
+    if(referral){
+      data.referral = referral
+    }
     await axios
-      .post("https://immunx.herokuapp.com/api/auth/register", {
-        email,
-        password,
-      })
+      .post("http://localhost:8000/api/auth/register", data)
       .then( async (res) => {
         if (res.status === 200) {
            await localStorage.setItem("token", res.data.token);
@@ -104,7 +115,22 @@ function Register({setRedirect}) {
                     />
                   </FormControl>
                 </div>
-               
+
+                <div className="form-group">
+                  <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-referral">
+                      Referral Code
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-referral"
+                      type={"text"}
+                      value={referral}
+                      onChange={(e) => setReferral(e.target.value)}
+                      label="Referral Code"
+                    />
+                  </FormControl>
+                </div>
+
                 <div className="form-group">
                   <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">

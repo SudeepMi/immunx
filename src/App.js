@@ -7,16 +7,17 @@ import Loading from "./Components/Loading";
 // packages
 import { AnimatePresence } from "framer-motion";
 import { PrivateRoute, PublicRoute } from "./Utils/Utils";
+import ForgotPassword from "./Pages/Auth/ForgotPassword";
 const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
 const Home = React.lazy(() => import("./Pages/Home"));
 
 function App() {
-   // eslint-disable-next-line 
+  // eslint-disable-next-line 
   const [redirect, setRedirect] = React.useState(false);
 
- 
+
   return (
     <AnimatePresence>
       <BrowserRouter>
@@ -41,12 +42,22 @@ function App() {
             )}
           />
 
-        <PublicRoute
+          <PublicRoute
             exact
             path="/register"
             component={() => (
               <Suspense fallback={<Loading />}>
-                <Register setRedirect={setRedirect}/>
+                <Register setRedirect={setRedirect} />
+              </Suspense>
+            )}
+          />
+
+          <PublicRoute
+            exact
+            path="/forgot-password"
+            component={() => (
+              <Suspense fallback={<Loading />}>
+                <ForgotPassword setRedirect={setRedirect} />
               </Suspense>
             )}
           />
@@ -56,7 +67,7 @@ function App() {
             path="/dashboard"
             component={() => (
               <Suspense fallback={<Loading />}>
-                <Dashboard setRedirect={setRedirect}  />
+                <Dashboard setRedirect={setRedirect} />
               </Suspense>
             )}
           />

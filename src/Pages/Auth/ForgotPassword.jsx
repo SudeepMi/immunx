@@ -3,8 +3,6 @@ import {
     Container,
     Divider,
     FormControl,
-    IconButton,
-    InputAdornment,
     InputLabel,
     OutlinedInput,
     Snackbar,
@@ -12,18 +10,16 @@ import {
   } from "@mui/material";
   import React, { useEffect } from "react";
   import "./Auth.css";
-  import Visibility from "@mui/icons-material/Visibility";
-  import VisibilityOff from "@mui/icons-material/VisibilityOff";
   import LoadingButton from "@mui/lab/LoadingButton";
   import { Link } from "react-router-dom";
-  import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { motion } from "framer-motion";
+  import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
+  import { motion } from "framer-motion";
 import axios from "axios";
 
 
   
   
-  function Login({ setRedirect }) {
+  function ForgotPassword({ setRedirect }) {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [open, setOpen] = React.useState(false);
@@ -92,7 +88,7 @@ import axios from "axios";
             <div className="auth-form">
             <h1 className="landingPage__content__box__title">IMMUN<span className="text-large">X</span></h1>
               <form>
-              <p>Login</p>
+              <p>Enter your email</p>
                 <div className="form-group">
                   <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-username">
@@ -107,49 +103,18 @@ import axios from "axios";
                     />
                   </FormControl>
                 </div>
-                <div className="form-group">
-                  <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">
-                      Password
-                    </InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-password"
-                      type={values.showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={ (e)=>setPassword(e.target.value) }
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end"
-                          >
-                            {values.showPassword ? (
-                              <VisibilityOff />
-                            ) : (
-                              <Visibility />
-                            )}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                      label="Password"
-                    />
-                  </FormControl>
-                </div>
                 <div className="form-group btn-area">
                   <LoadingButton
                     loading={isFetching}
                     loadingPosition="start"
-                    startIcon={<LockOpenIcon />}
+                    startIcon={<ArrowCircleUpOutlinedIcon />}
                     variant="outlined"
                     color="error"
                     onClick={()=>handleLogin()}
                   >
                     {" "}
-                    Login{" "}
+                    Submit{" "}
                   </LoadingButton>
-                  <Link to="/forgot-password">Forgot your password?</Link>
                 </div>
               </form>
               <Divider />
@@ -174,5 +139,5 @@ import axios from "axios";
   
   
   
-  export default Login;
+  export default ForgotPassword;
   
