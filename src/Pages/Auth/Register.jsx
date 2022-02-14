@@ -108,8 +108,8 @@ function Register({ setRedirect }) {
                     <OutlinedInput
                       id="outlined-adornment-username"
                       type="text"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={referral}
+                      onChange={(e) => setReferral(e.target.value)}
                       label="Referal ID"
                     />
                   </FormControl>
