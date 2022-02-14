@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap");
+.dashboard__container {
+  font-family: "Raleway", sans-serif; }
+  .dashboard__container .userInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5vw;
+    background: #000;
+    color: #fff; }
+    .dashboard__container .userInfo h1 {
+      margin: 0; }
+      .dashboard__container .userInfo h1 span {
+        color: #01ff2c; }
+    .dashboard__container .userInfo .walletInfo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-direction: row;
+      justify-content: center; }
+      .dashboard__container .userInfo .walletInfo .MuiButton-root {
+        color: #01ff2c; }
+      .dashboard__container .userInfo .walletInfo .wallet__address {
+        background: #3a3a3a;
+        padding: 3px 10px;
+        border-radius: 15px; }
+      .dashboard__container .userInfo .walletInfo .identicon {
+        width: 30px !important;
+        height: 30px !important;
+        object-fit: contain !important;
+        background-size: contain;
+        background: #fff;
+        padding: 3px;
+        border-radius: 5px; }
+      .dashboard__container .userInfo .walletInfo .logout {
+        background: #181818;
+        color: #fff;
+        gap: 5px;
+        align-items: center; }
+  .dashboard__container .dashboard__container__title {
+    padding: 8px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafafa; }
+    .dashboard__container .dashboard__container__title h1 {
+      font-weight: 500;
+      font-size: 30px;
+      display: flex;
+      gap: 10px;
+      align-items: center; }
+    .dashboard__container .dashboard__container__title .buttons {
+      display: flex;
+      gap: 15px; }
+      .dashboard__container .dashboard__container__title .buttons .MuiButton-root {
+        background: #f0f0f0;
+        padding: 8px 20px;
+        color: #000;
+        text-transform: capitalize;
+        font-size: 15px;
+        border-radius: 7px;
+        gap: 5px; }
+      .dashboard__container .dashboard__container__title .buttons .deposit {
+        background: #2ecc71;
+        padding: 8px 20px;
+        color: #fff;
+        text-transform: capitalize;
+        cursor: pointer; }
+  .dashboard__container .balances {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 5vw;
+    padding: 20px 0;
+    border-bottom: 1px solid #dedede; }
+    .dashboard__container .balances .dashboard__balance {
+      display: flex;
+      gap: 40px;
+      padding: 15px 0; }
+      .dashboard__container .balances .dashboard__balance .item {
+        border-left: 3px solid #2ecc71;
+        border-right: 3px solid #2ecc71;
+        background: #fbfbfb;
+        padding: 15px 30px 8px 30px;
+        border-radius: 15px;
+        box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5); }
+        .dashboard__container .balances .dashboard__balance .item h1,
+        .dashboard__container .balances .dashboard__balance .item h3 {
+          margin: 0;
+          font-weight: 500; }
+        .dashboard__container .balances .dashboard__balance .item h1 {
+          margin: 5px 0;
+          color: #8b8b8b;
+          font-size: 25px; }
+        .dashboard__container .balances .dashboard__balance .item h3 {
+          font-size: 16px; }
+    .dashboard__container .balances .information ol {
+      padding: 0 20px;
+      line-height: 1.5; }
+    .dashboard__container .balances .ROI h2 {
+      margin: 5px 0; }
+    .dashboard__container .balances .ROI div {
+      margin-bottom: 10px; }
+    .dashboard__container .balances .ROI .MuiButton-root {
+      background: #000;
+      color: #fff;
+      padding: 3px 10px;
+      text-transform: initial;
+      min-width: 0;
+      margin-bottom: 10px;
+      gap: 8px; }
+
+/*# sourceMappingURL=style.css.map */

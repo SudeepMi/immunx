@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
-import "./App.css";
 import { BrowserRouter, Switch } from "react-router-dom";
+import 'remixicon/fonts/remixicon.css'
+
+import "./App.css";
 
 // components
 import Loading from "./Components/Loading";
@@ -10,7 +12,7 @@ import { PrivateRoute, PublicRoute } from "./Utils/Utils";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
-const Dashboard = React.lazy(() => import("./Pages/Dashboard"));
+const Dashboard = React.lazy(() => import("./Pages/Dashboard/index"));
 const Home = React.lazy(() => import("./Pages/Home"));
 
 function App() {

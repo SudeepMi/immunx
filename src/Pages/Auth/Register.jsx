@@ -20,7 +20,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { motion } from "framer-motion";
 import axios from "axios";
 
-function Register({setRedirect}) {
+function Register({ setRedirect }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -50,7 +50,7 @@ function Register({setRedirect}) {
     event.preventDefault();
   };
 
-  const handleRegister = async() => {
+  const handleRegister = async () => {
     setFetching(true);
     if(email==="" || password==="" ){
       setError(true);
@@ -69,10 +69,10 @@ function Register({setRedirect}) {
       .post("http://localhost:8000/api/auth/register", data)
       .then( async (res) => {
         if (res.status === 200) {
-           await localStorage.setItem("token", res.data.token);
-           await localStorage.setItem("user", JSON.stringify(res.data.user));
-           setFetching(false);
-           setRedirect(true);
+          await localStorage.setItem("token", res.data.token);
+          await localStorage.setItem("user", JSON.stringify(res.data.user));
+          setFetching(false);
+          setRedirect(true);
         }
       })
       .catch((err) => {
@@ -80,7 +80,6 @@ function Register({setRedirect}) {
         setFetching(false);
         seterrorMessage(err.response.data.reason);
       });
-      
   };
 
   const handleClose = (event, reason) => {
@@ -100,7 +99,22 @@ function Register({setRedirect}) {
                 IMMUN<span className="text-large">X</span>
               </h1>
               <form>
-                <p>Create new account</p>
+                <p className="form__title">Create new account</p>
+                <div className="form-group">
+                  <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-username">
+                      Referral ID
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-username"
+                      type="text"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      label="Referal ID"
+                    />
+                  </FormControl>
+                </div>
+
                 <div className="form-group">
                   <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-username">
@@ -112,21 +126,6 @@ function Register({setRedirect}) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       label="Username or Email"
-                    />
-                  </FormControl>
-                </div>
-
-                <div className="form-group">
-                  <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-referral">
-                      Referral Code
-                    </InputLabel>
-                    <OutlinedInput
-                      id="outlined-adornment-referral"
-                      type={"text"}
-                      value={referral}
-                      onChange={(e) => setReferral(e.target.value)}
-                      label="Referral Code"
                     />
                   </FormControl>
                 </div>
@@ -158,6 +157,36 @@ function Register({setRedirect}) {
                         </InputAdornment>
                       }
                       label="Password"
+                    />
+                  </FormControl>
+                </div>
+                <div className="form-group">
+                  <FormControl sx={{ m: 1 }} fullWidth variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">
+                      Confirm Password
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-password"
+                      type={values.showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {values.showPassword ? (
+                              <VisibilityOff />
+                            ) : (
+                              <Visibility />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                      label="Confirm Password"
                     />
                   </FormControl>
                 </div>
