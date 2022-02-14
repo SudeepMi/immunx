@@ -43,7 +43,7 @@ function ForgotPassword({ setRedirect }) {
     console.log("login");
     setFetching(true);
     axios
-      .post("http://localhost:8000/api/auth/forgotpassword", {
+      .post("https://immunx.herokuapp.com/api/auth/forgotpassword", {
         email,
       })
       .then((res) => {
@@ -73,7 +73,7 @@ function ForgotPassword({ setRedirect }) {
   const handleVerifyCode = () => {
     setFetching(true);
     axios
-      .post("http://localhost:8000/api/auth/verifycode", {
+      .post("https://immunx.herokuapp.com/api/auth/verifycode", {
         id: userId,
         code: verificationCode,
       })
@@ -102,7 +102,7 @@ function ForgotPassword({ setRedirect }) {
           return
         }
         setFetching(true);
-        axios.post("http://localhost:8000/api/auth/updatepassword", {
+        axios.post("https://immunx.herokuapp.com/api/auth/updatepassword", {
             id: userId,
             password,
         }).then((res) => {

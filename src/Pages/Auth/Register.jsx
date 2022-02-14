@@ -66,7 +66,7 @@ function Register({ setRedirect }) {
       data.referral = referral
     }
     await axios
-      .post("http://localhost:8000/api/auth/register", data)
+      .post("https://immunx.herokuapp.com/api/auth/register", data)
       .then( async (res) => {
         if (res.status === 200) {
           await localStorage.setItem("token", res.data.token);
