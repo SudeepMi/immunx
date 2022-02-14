@@ -3,14 +3,18 @@ import "./styles/style.css";
 import React from "react";
 import { Button } from "@mui/material";
 import Identicon from "react-identicons";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
+import Invest from "./components/Invest";
+import WithdrawROI from "./components/WithdrawROI";
 
 export default function Dashboard({ setRedirect }) {
   const [isDepositModelOpen, setIsDepositModelOpen] = React.useState(false);
   const [isWithdrawModelOpen, setIsWithdrawModelOpen] = React.useState(false);
+  const [isInvestModelOpen, setIsInvestModelOpen] = React.useState(false);
+  const [isWithdrawROIModelOpen, setWithdrawROIModelOpen] = React.useState(false);
 
   const HandleLogOut = () => {
     localStorage.clear();
@@ -23,7 +27,7 @@ export default function Dashboard({ setRedirect }) {
 
   return (
     <div className="dashboard__container">
-      <ToastContainer/>
+      <ToastContainer />
       <div className="userInfo">
         <h1>
           Immun<span>X</span>
@@ -51,14 +55,21 @@ export default function Dashboard({ setRedirect }) {
             {" "}
             <i className="ri-download-2-line"></i> Deposit
           </Button>
-          {isDepositModelOpen && <Deposit setIsDepositModelOpen={setIsDepositModelOpen}/>}
+          {isDepositModelOpen && (
+            <Deposit setIsDepositModelOpen={setIsDepositModelOpen} />
+          )}
           <Button onClick={() => setIsWithdrawModelOpen(true)}>
             <i className="ri-upload-2-line"></i>Withdraw
           </Button>
-          {isWithdrawModelOpen && <Withdraw setIsWithdrawModelOpen={setIsWithdrawModelOpen}/>}
-          <Button>
+          {isWithdrawModelOpen && (
+            <Withdraw setIsWithdrawModelOpen={setIsWithdrawModelOpen} />
+          )}
+          <Button onClick={() => setIsInvestModelOpen(true)}>
             <i className="ri-bank-line"></i> Invest
           </Button>
+          {isInvestModelOpen && (
+            <Invest setIsInvestModelOpen={setIsInvestModelOpen} />
+          )}
         </div>
       </div>
 
@@ -85,7 +96,8 @@ export default function Dashboard({ setRedirect }) {
                 balance.
               </li>
               <li>
-                <b>Compound Balance</b> is sum of unwithdrawed ROI & invested balance.
+                <b>Compound Balance</b> is sum of unwithdrawed ROI & invested
+                balance.
               </li>
               <li>
                 <b>Referral Bonus</b> is sum bonus balances from your referrals
@@ -98,9 +110,12 @@ export default function Dashboard({ setRedirect }) {
         <div className="ROI">
           <h3>ROI Generated: $5</h3>
           <div>Claimable After: Claimable</div>
-          <Button>
+          <Button onClick={() => setWithdrawROIModelOpen(true)}>
             <i className="ri-upload-2-line"></i>Withdraw Daily ROI
           </Button>
+          {isWithdrawROIModelOpen && (
+            <WithdrawROI setWithdrawROIModelOpen={setWithdrawROIModelOpen} />
+          )}
           <Button>
             <i className="ri-share-line"></i>Invite
           </Button>
