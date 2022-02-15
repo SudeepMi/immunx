@@ -117,7 +117,7 @@ export default function Dashboard({ setRedirect }) {
             <WithdrawROI setWithdrawROIModelOpen={setWithdrawROIModelOpen} />
           )}
           <Button onClick={() => {
-                navigator.clipboard.writeText("https://immunex.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
+                navigator.clipboard.writeText("https://immunx.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
                 toast("Invititation Link Copied!")
           }}>
             <i className="ri-share-line"></i>Invite

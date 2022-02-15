@@ -21,13 +21,15 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 function Register({ setRedirect }) {
+ 
+  const ref = window.location.href.split("=")[1];
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [isError, setError] = React.useState("");
   const [isFetching, setFetching] = React.useState(false);
   const [errorMessage, seterrorMessage] = React.useState(false);
-  const [referral, setReferral] = React.useState("");
+  const [referral, setReferral] = React.useState(ref||"");
 
   useEffect(() => {
     if (isError) {
@@ -111,6 +113,7 @@ function Register({ setRedirect }) {
                       value={referral}
                       onChange={(e) => setReferral(e.target.value)}
                       label="Referal ID"
+                      disabled={ref ? true : false}
                     />
                   </FormControl>
                 </div>
