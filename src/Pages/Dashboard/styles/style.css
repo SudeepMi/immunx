@@ -9,6 +9,12 @@
     padding: 8px 5vw;
     background: #000;
     color: #fff; }
+    @media (max-width: 425px) {
+      .dashboard__container .userInfo {
+        flex-wrap: wrap;
+        padding-bottom: 15px;
+        justify-content: center;
+        gap: 10px; } }
     .dashboard__container .userInfo h1 {
       margin: 0; }
       .dashboard__container .userInfo h1 span {
@@ -19,8 +25,14 @@
       gap: 10px;
       flex-direction: row;
       justify-content: center; }
+      @media (max-width: 425px) {
+        .dashboard__container .userInfo .walletInfo {
+          flex-wrap: wrap; } }
       .dashboard__container .userInfo .walletInfo .MuiButton-root {
         color: #01ff2c; }
+        @media (max-width: 425px) {
+          .dashboard__container .userInfo .walletInfo .MuiButton-root {
+            margin-left: 20px; } }
       .dashboard__container .userInfo .walletInfo .wallet__address {
         background: #3a3a3a;
         padding: 3px 10px;
@@ -44,6 +56,10 @@
     align-items: center;
     justify-content: space-between;
     background: #fafafa; }
+    @media (max-width: 576px) {
+      .dashboard__container .dashboard__container__title {
+        flex-wrap: wrap;
+        padding-bottom: 25px; } }
     .dashboard__container .dashboard__container__title h1 {
       font-weight: 500;
       font-size: 30px;
@@ -53,6 +69,12 @@
     .dashboard__container .dashboard__container__title .buttons {
       display: flex;
       gap: 15px; }
+      @media (max-width: 375px) {
+        .dashboard__container .dashboard__container__title .buttons {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%; } }
       .dashboard__container .dashboard__container__title .buttons .MuiButton-root {
         background: #f0f0f0;
         padding: 8px 20px;
@@ -61,6 +83,12 @@
         font-size: 15px;
         border-radius: 7px;
         gap: 5px; }
+        @media (max-width: 425px) {
+          .dashboard__container .dashboard__container__title .buttons .MuiButton-root {
+            padding: 8px 15px; } }
+        @media (max-width: 375px) {
+          .dashboard__container .dashboard__container__title .buttons .MuiButton-root {
+            width: 80vw; } }
       .dashboard__container .dashboard__container__title .buttons .deposit {
         background: #2ecc71;
         padding: 8px 20px;
@@ -73,10 +101,20 @@
     align-items: flex-start;
     margin: 0 5vw;
     padding: 25px 0 30px 0; }
+    @media (max-width: 1200px) {
+      .dashboard__container .balances {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px; } }
     .dashboard__container .balances .dashboard__balance {
       display: flex;
       gap: 40px;
       padding: 15px 0; }
+      @media (max-width: 425px) {
+        .dashboard__container .balances .dashboard__balance {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; } }
       .dashboard__container .balances .dashboard__balance .item {
         border-left: 3px solid #2ecc71;
         border-right: 3px solid #2ecc71;
@@ -86,6 +124,10 @@
         box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5);
         -webkit-box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5);
         -moz-box-shadow: 10px 10px 27px -19px rgba(0, 0, 0, 0.5); }
+        @media (max-width: 425px) {
+          .dashboard__container .balances .dashboard__balance .item {
+            min-width: 45vw;
+            max-width: 55vw; } }
         .dashboard__container .balances .dashboard__balance .item h1,
         .dashboard__container .balances .dashboard__balance .item h3 {
           margin: 0;
@@ -102,7 +144,8 @@
     .dashboard__container .balances .ROI {
       display: flex;
       flex-direction: column;
-      gap: 5px; }
+      gap: 5px;
+      position: relative; }
       .dashboard__container .balances .ROI h3 {
         margin: 5px 0;
         display: flex;

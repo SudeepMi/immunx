@@ -6,9 +6,9 @@ ul {
   margin: 0;
   padding: 0;
 }
-body {
+/* body {
   overflow-y: hidden;
-}
+} */
 
 .text-large{
   font-size: 72px;
