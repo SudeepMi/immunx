@@ -2,7 +2,6 @@
 
 .dashboard__container {
   font-family: "Raleway", sans-serif;
-  position: relative;
 
   .userInfo {
     display: flex;
@@ -197,7 +196,6 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      position: relative;
 
       h3 {
         margin: 5px 0;
