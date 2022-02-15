@@ -29,6 +29,7 @@ function Login({ setRedirect }) {
   const [errorMessage, seterrorMessage] = React.useState(false);
 
   useEffect(() => {
+    
     if (isError) {
       setOpen(true);
     }
@@ -62,6 +63,7 @@ function Login({ setRedirect }) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           setFetching(false);
           setRedirect(true);
+          window.location.reload();
         }
       })
       .catch((err) => {
