@@ -5,20 +5,26 @@ import { toast } from "react-toastify";
 
 import "./styles/style.css";
 
-export default function Deposit({setIsDepositModelOpen}) {
-  const handleCopyAddress = () => {
-    navigator.clipboard.writeText("TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
-    toast("Address copied to clipboard!")
-  }
-  
+export default function Deposit({ setIsDepositModelOpen }) {
+  const textAreaRef = React.useRef(null);
+  const handleCopyAddress = (e) => {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+    // This is just personal preference.
+    // I prefer to not show the whole text area selected.
+    e.target.focus();
+    // navigator.clipboard?.writeText
+    //   ? navigator.clipboard.writeText("TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq")
+    //   : document.execCommand("TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq");
+    toast("Address copied to clipboard!");
+  };
+
   return (
     <div className="depositModel__container">
       <div className="relativeContainer">
         <div className="model">
           <div className="depositModel__container__title">
-            <h1>
-              Deposit
-            </h1>
+            <h1>Deposit</h1>
           </div>
 
           <div className="qrContainer">
@@ -29,14 +35,26 @@ export default function Deposit({setIsDepositModelOpen}) {
             <div className="address__container">
               TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq
             </div>
-            <Button onClick={() => handleCopyAddress()}>Copy</Button>
+
+            <textarea
+              ref={textAreaRef}
+              value="TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq"
+              readOnly
+            />
+            <Button onClick={handleCopyAddress}>Copy</Button>
           </div>
 
           <div>
-            <b>Note</b>: Make sure you're transfering from <br/>Tron Network (TRC20 Chain).
+            <b>Note</b>: Make sure you're transfering from <br />
+            Tron Network (TRC20 Chain).
           </div>
 
-          <Button className="closeBtn" onClick={() => setIsDepositModelOpen(false)}>Close</Button>
+          <Button
+            className="closeBtn"
+            onClick={() => setIsDepositModelOpen(false)}
+          >
+            Close
+          </Button>
         </div>
       </div>
     </div>
