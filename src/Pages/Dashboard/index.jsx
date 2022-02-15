@@ -150,7 +150,7 @@ export default function Dashboard({ setRedirect }) {
           <Button
             onClick={() => {
               navigator.clipboard.writeText(
-                "https://immunex.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq"
+                "https://immunx.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq"
               );
               toast("Invititation Link Copied!");
             }}
