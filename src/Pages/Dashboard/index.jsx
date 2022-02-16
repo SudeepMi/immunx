@@ -31,20 +31,23 @@ export default function Dashboard({ setRedirect }) {
   React.useEffect(() => {
     document.title = "Dashboard | ImmunX";
     axios
-      .get("https://immunx.herokuapp.com/api/auth/me", {
+      // .get("https://immunx.herokuapp.com/api/auth/me", {
+      .get("http://localhost:4000/api/auth/me", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res0) => {
         setUser(res0.data.data);
+        console.log(res0.data.data)
+
         axios
           .post(
-            "https://immunx.herokuapp.com/api/auth/chain",
-            // "http://localhost:4000/api/auth/chain",
+            // "https://immunx.herokuapp.com/api/auth/chain",
+            "http://localhost:4000/api/auth/chain",
             {
-              privateKey: res0.data.data.wallet.privateKey,
-              publicKey: res0.data.data.wallet.address.base58,
+              privateKey: res0?.data.data.wallet.privateKey,
+              publicKey: res0?.data.data.wallet.address.base58,
             },
             {
               headers: {
