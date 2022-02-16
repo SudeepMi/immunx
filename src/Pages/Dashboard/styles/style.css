@@ -1,7 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap");
-.dashboard__container {
-  font-family: "Raleway", sans-serif;
+.animation {
+  height: 100vh;
+  width: 100vw;
   position: relative; }
+  .animation img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    max-width: 80px; }
+
+.dashboard__container {
+  font-family: "Raleway", sans-serif; }
   .dashboard__container .userInfo {
     display: flex;
     justify-content: space-between;
@@ -144,8 +154,7 @@
     .dashboard__container .balances .ROI {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      position: relative; }
+      gap: 5px; }
       .dashboard__container .balances .ROI h3 {
         margin: 5px 0;
         display: flex;
