@@ -123,8 +123,9 @@
         .investModel__container .relativeContainer .model {
           min-width: 75vw;
           max-width: 75vw; } }
-      .withdrawModel__container .relativeContainer .model h1,
-      .investModel__container .relativeContainer .model h1 {
+      .withdrawModel__container .relativeContainer .model h1, .withdrawModel__container .relativeContainer .model h4,
+      .investModel__container .relativeContainer .model h1,
+      .investModel__container .relativeContainer .model h4 {
         margin: 0; }
       .withdrawModel__container .relativeContainer .model .MuiTextField-root,
       .investModel__container .relativeContainer .model .MuiTextField-root {

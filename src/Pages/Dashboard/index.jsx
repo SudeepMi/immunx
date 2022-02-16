@@ -115,7 +115,7 @@ export default function Dashboard({ setRedirect }) {
                 <i className="ri-bank-line"></i> Invest
               </Button>
               {isInvestModelOpen && (
-                <Invest setIsInvestModelOpen={setIsInvestModelOpen} />
+                <Invest balance={parseInt(chain?.userData?.balance.hex, 16).toString()} setIsInvestModelOpen={setIsInvestModelOpen} />
               )}
             </div>
           </div>
