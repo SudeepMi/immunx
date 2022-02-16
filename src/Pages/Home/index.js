@@ -2,7 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./style.css";
 import { Button } from '@material-ui/core'
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import "./style.css";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
           <div className="landingPage__content__box">
             <Button type="button" variant="contained" onClick={()=>history.push('/login')} >Login</Button>
             <Button type="button" variant="contained" onClick={()=>history.push('/register')} >Register</Button>
+            <Link to="/about" className="aboutus__link">About ImmunX</Link>
           </div>
           </div>
           </div>

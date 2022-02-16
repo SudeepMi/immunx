@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import 'remixicon/fonts/remixicon.css'
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,6 +15,7 @@ const Login = React.lazy(() => import("./Pages/Auth/Login"));
 const Register = React.lazy(() => import("./Pages/Auth/Register"));
 const Dashboard = React.lazy(() => import("./Pages/Dashboard/index"));
 const Home = React.lazy(() => import("./Pages/Home"));
+const About = React.lazy(() => import("./Pages/About/About"));
 
 function App() {
   // eslint-disable-next-line 
@@ -64,6 +65,11 @@ function App() {
               </Suspense>
             )}
           />
+          <Route exact path="/about" component={() =>(
+               <Suspense fallback={<Loading />}>
+               <About setRedirect={setRedirect} />
+             </Suspense>
+          )} />
 
           <PrivateRoute
             // exact

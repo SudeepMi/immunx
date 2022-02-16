@@ -106,7 +106,7 @@ export default function Dashboard({ setRedirect }) {
             </ol>
           </div>
         </div>
-
+         
         <div className="ROI">
           <h3>ROI Generated: $5</h3>
           <div>Claimable After: Claimable</div>
