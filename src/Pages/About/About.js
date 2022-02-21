@@ -30,7 +30,7 @@ export default function About() {
                                     <h1 className="about__box__title">Community driven</h1>
                                     <div className="d-flex">
                                         <p className="about__box__text">
-                                            Forsage smart-contract processes the rewards in cryptocurrency within the matrix structures immediately to the participants and doesn’t store any funds itself.
+                                            ImmunX smart-contract processes the rewards in cryptocurrency within the matrix structures immediately to the participants and doesn’t store any funds itself.
                                         </p>
                                         <img src={Community} alt="decentralized" className="about__box__img" />
                                     </div>
