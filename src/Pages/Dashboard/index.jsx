@@ -38,6 +38,9 @@ export default function Dashboard({ setRedirect }) {
         },
       })
       .then((res0) => {
+        if(!res0.data.data) {
+          HandleLogOut();
+        }
         setUser(res0.data.data);
         localStorage.setItem("walletData", JSON.stringify(res0.data.data));
 

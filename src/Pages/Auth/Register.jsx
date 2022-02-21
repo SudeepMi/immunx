@@ -21,7 +21,6 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 function Register({ setRedirect }) {
- 
   const ref = window.location.href.split("=")[1];
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -29,7 +28,7 @@ function Register({ setRedirect }) {
   const [isError, setError] = React.useState("");
   const [isFetching, setFetching] = React.useState(false);
   const [errorMessage, seterrorMessage] = React.useState(false);
-  const [referral, setReferral] = React.useState(ref||"");
+  const [referral, setReferral] = React.useState(ref || "");
 
   useEffect(() => {
     if (isError) {
@@ -54,23 +53,23 @@ function Register({ setRedirect }) {
 
   const handleRegister = async () => {
     setFetching(true);
-    if(email==="" || password==="" ){
+    if (email === "" || password === "") {
       setError(true);
       seterrorMessage("Please fill all the fields");
       setFetching(false);
-      return
+      return;
     }
     const data = {
       email,
       password,
-    }
-    if(referral){
-      data.referral = referral
+    };
+    if (referral) {
+      data.referral = referral;
     }
     await axios
-      // .post("https://immunx.herokuapp.com/api/auth/register", data)
-      .post("http://localhost:4000/api/auth/register", data)
-      .then( async (res) => {
+      .post("https://immunx.herokuapp.com/api/auth/register", data)
+      // .post("http://localhost:4000/api/auth/register", data)
+      .then(async (res) => {
         if (res.status === 200) {
           await localStorage.setItem("token", res.data.token);
           await localStorage.setItem("user", JSON.stringify(res.data.user));
