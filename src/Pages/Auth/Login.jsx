@@ -67,7 +67,7 @@ function Login({ setRedirect }) {
         }
       })
       .catch((err) => {
-        setError(true);
+        err?.response?.data?.reason && setError(true);
         setFetching(false);
         seterrorMessage(err.response.data.reason);
       });
