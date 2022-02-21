@@ -7,6 +7,7 @@ import "./styles/style.css";
 
 export default function Deposit({ setIsDepositModelOpen }) {
   const textAreaRef = React.useRef(null);
+
   const handleCopyAddress = (e) => {
     textAreaRef.current.select();
     document.execCommand("copy");
@@ -28,17 +29,29 @@ export default function Deposit({ setIsDepositModelOpen }) {
           </div>
 
           <div className="qrContainer">
-            <QRCode value="TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq" />
+            <QRCode
+              value={
+                JSON.parse(localStorage.getItem("walletData")) &&
+                JSON.parse(localStorage.getItem("walletData"))?.wallet.address
+                  .base58
+              }
+            />
           </div>
 
           <div className="address">
             <div className="address__container">
-              TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq
+              {JSON.parse(localStorage.getItem("walletData")) &&
+                JSON.parse(localStorage.getItem("walletData"))?.wallet.address
+                  .base58}
             </div>
 
             <textarea
               ref={textAreaRef}
-              value="TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq"
+              value={
+                JSON.parse(localStorage.getItem("walletData")) &&
+                JSON.parse(localStorage.getItem("walletData"))?.wallet.address
+                  .base58
+              }
               readOnly
             />
             <Button onClick={handleCopyAddress}>Copy</Button>

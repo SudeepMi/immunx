@@ -7,12 +7,26 @@ export default function Invest({ setIsInvestModelOpen, balance }) {
   const [amount, setAmount] = React.useState("");
 
   const handleInvest = () => {
+    if (amount === "") return toast.error("Enter Investment Amount!");
+    if (parseInt(amount) < 50)
+      return toast.error("Minimium Investment is $50!");
+    if (parseInt(amount) > parseInt(balance) / 1000000)
+      return toast.error("Insufficient Balance!");
+    setIsInvestModelOpen(false);
+
     axios
-      .post("http://localhost:4000/api/auth/invest", {
-        investmentAmount: amount,
-      })
+      .post(
+        "http://localhost:4000/api/auth/invest",
+        {
+          investmentAmount: amount,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then(() => {
-        setIsInvestModelOpen(false);
         toast("Investment request sent!");
       })
       .catch((err) => console.log(err));
@@ -42,12 +56,12 @@ export default function Invest({ setIsInvestModelOpen, balance }) {
             <p>
               <i className="ri-wallet-3-line"></i>{" "}
               <span>
-                <b>Available Balance</b>: ${balance}
+                <b>Available Balance</b>: ${parseInt(balance) / 1000000}
               </span>
             </p>
             <Button
               onClick={() => {
-                setAmount(balance);
+                setAmount((parseInt(balance) / 1000000).toString());
               }}
             >
               MAX
@@ -75,7 +89,7 @@ export default function Invest({ setIsInvestModelOpen, balance }) {
             onClick={() => handleInvest()}
           >
             <i className="ri-bank-line"></i>
-            {balance === "0" ? "Insufficient Fund" : Invest}
+            {balance === "0" ? "Insufficient Fund" : "Invest"}
           </Button>
 
           <Button

@@ -31,20 +31,20 @@ export default function Dashboard({ setRedirect }) {
   React.useEffect(() => {
     document.title = "Dashboard | ImmunX";
     axios
-      // .get("https://immunx.herokuapp.com/api/auth/me", {
-      .get("http://localhost:4000/api/auth/me", {
+      .get("https://immunx.herokuapp.com/api/auth/me", {
+        // .get("http://localhost:4000/api/auth/me", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res0) => {
         setUser(res0.data.data);
-        console.log(res0.data.data)
+        localStorage.setItem("walletData", JSON.stringify(res0.data.data));
 
         axios
           .post(
-            // "https://immunx.herokuapp.com/api/auth/chain",
-            "http://localhost:4000/api/auth/chain",
+            "https://immunx.herokuapp.com/api/auth/chain",
+            // "http://localhost:4000/api/auth/chain",
             {
               privateKey: res0?.data.data.wallet.privateKey,
               publicKey: res0?.data.data.wallet.address.base58,
@@ -56,7 +56,6 @@ export default function Dashboard({ setRedirect }) {
             }
           )
           .then((res1) => {
-            console.log(res1.data);
             setChain(res1?.data);
             setIsLoading(false);
           })
@@ -118,7 +117,13 @@ export default function Dashboard({ setRedirect }) {
                 <i className="ri-bank-line"></i> Invest
               </Button>
               {isInvestModelOpen && (
-                <Invest balance={parseInt(chain?.userData?.balance.hex, 16).toString()} setIsInvestModelOpen={setIsInvestModelOpen} />
+                <Invest
+                  balance={parseInt(
+                    chain?.userData?.balance.hex,
+                    16
+                  ).toString()}
+                  setIsInvestModelOpen={setIsInvestModelOpen}
+                />
               )}
             </div>
           </div>
@@ -129,19 +134,25 @@ export default function Dashboard({ setRedirect }) {
                 <div className="item">
                   <h3>Estimated Balance</h3>
                   <h1>
-                    ${(
-                      parseInt(chain?.userData?.balance.hex, 16) +
-                      parseInt(chain?.userData?.initialInvestment?.hex, 16)
+                    $
+                    {(
+                      (parseInt(chain?.userData?.balance.hex, 16) +
+                        parseInt(chain?.userData?.initialInvestment?.hex, 16)) /
+                      1000000
                     ).toString()}
                   </h1>
                 </div>
                 <div className="item">
                   <h3>Compound Balance</h3>
-                  <h1>${parseInt(chain?.userData?.initialInvestment.hex, 16)}</h1>
+                  <h1>
+                    ${parseInt(chain?.userData?.initialInvestment.hex, 16)}
+                  </h1>
                 </div>
                 <div className="item">
                   <h3>Period Ends After</h3>
-                  <h1>{parseInt(chain?.userData?.withdrawDisablesAt.hex, 16)} days</h1>
+                  <h1>
+                    {parseInt(chain?.userData?.withdrawDisablesAt.hex, 16)} days
+                  </h1>
                 </div>
               </div>
               <div className="information">
@@ -176,7 +187,7 @@ export default function Dashboard({ setRedirect }) {
               <Button
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    "https://immunx.org/register?referer=TWamVietKU8GyQ6ZSEHkHwM7Nd31PMjMWq"
+                    `https://immunx.org/register?referer=${user?.wallet?.address?.base58}`
                   );
                   toast("Invititation Link Copied!");
                 }}
